@@ -77,9 +77,6 @@ def parse_stcis_html(path, origin, destination, origin_korean, destination_korea
 
     df["date"] = pd.to_datetime(df["date"])
 
-    df["weekday"] = df["date"].dt.dayofweek
-    df["is_weekend"] = df["weekday"] >= 5
-
     # Convert passenger and time columns to numeric, removing commas and handling missing values
     passenger_cols = [
         "rail_passengers",
