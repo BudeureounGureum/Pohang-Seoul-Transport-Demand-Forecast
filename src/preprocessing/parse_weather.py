@@ -74,7 +74,7 @@ def parse_weather_csv():
     df = df.rename(columns=korean_to_english)
     
     # Convert fog_duration_hr to boolean indicating presence of fog to match the forecast data.
-    df['fog_duration(hr)'] = df['fog_duration(hr)'].notna()
+    df['fog_duration(hr)'] = df['fog_duration(hr)'].notna().astype(np.int8)
     df.rename(columns={'fog_duration(hr)': 'fog_occured'}, inplace=True)
     
     # Convert date column to datetime
